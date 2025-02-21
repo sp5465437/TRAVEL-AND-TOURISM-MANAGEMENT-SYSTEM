@@ -1,0 +1,94 @@
+{% extends 'myadmin/layout.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View Hotel Details</h6>
+                <div class="table-responsive">
+                    <table class="table">
+		            <tbody>
+		                <tr>
+		                    <td>Hotel ID</td>
+		                    <td>{{ result.id }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Hotel Name</td>
+		                    <td>{{ result.name }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Email</td>
+		                    <td>{{ result.email }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Contact</td>
+		                    <td>{{ result.contact }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Images</td>
+		                    <td>
+		                    	<img src="/media/upload/{{result.image}}" height="100" width="100">
+                            </td>
+		                </tr>
+		                <tr>
+		                    <td>Address</td>
+		                    <td>{{ result.address }}</td>
+		                </tr>
+		                <tr>
+		                    <td>State</td>
+		                    <td>{{ result.state }}</td>
+		                </tr>
+		                <tr>
+		                    <td>City</td>
+		                    <td>{{ result.city }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Area</td>
+		                    <td>{{ result.area }}</td>
+		                </tr>
+		                <!-- <tr>
+		                    <td>Room type</td>
+		                    <td>{% for image in hotel_images %}
+            						{{ image.room_type }}
+        						{% endfor %}
+        					</td>
+		                </tr>
+		                <tr>
+		                    <td>Ac/Non-Ac</td>
+		                    <td>{% for image in hotel_images %}
+            						{{ image.ac_type }}
+        						{% endfor %}
+        					</td>
+		                </tr>
+		                <tr>
+		                    <td>Price</td>
+		                    <td>{% for image in hotel_images %}
+            						{{ image.price }}(&#8377;)
+        						{% endfor %}
+        					</td>
+		                </tr>
+		                <tr>
+		                    <td>Registration date</td>
+		                    <td>{{ result.reg_date }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Images</td>
+		                    <td>
+                                {% for image in hotel_images %}
+                                    <img src="/media/upload/{{image.image}}" height="100" width="100">
+                                {% endfor %}
+                            </td>
+		                </tr> -->
+		                <tr> 		                  
+		                    <td>Status</td>
+		                    <td>{{ result.status }}</td>
+		                </tr>
+		            </tbody>
+		        </table>
+    			</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View and Modify Hotel</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Hotel id</th>
+                                <th>Hotel Name</th>
+                                <th>Email</th>
+                                <th>View</a></th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in result %}
+                            <tr>
+                                <td>{{row.id}}</td>
+                                <td>{{row.name}}</td>
+                                <td>{{row.email}}</td>
+                                <td><a href="{% url 'hoteldetail' row.id %}">View</a></td>
+                                <th><a href="/myadmin/hotel_edit/{{row.id}}">Edit</a></th>
+                                <th><a href="/myadmin/hotel_delete/{{row.id}}">Delete</a></th>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+<div class="col-sm-12 col-xl-6">
+<div class="bg-light rounded h-100 p-4">
+    <h6 class="mb-4">Add Hotel Image</h6>
+    <form method="post" action="/myadmin/hotel_image_store" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mb-3">
+            <label for="hotel" class="col-sm-4 col-form-label">Hotel Name</label>
+            <div class="col-sm-12">
+                <select class="form-select mb-3" aria-label="Default select example" id="hotel" name="hotel">
+                    <option selected>Select Hotel</option> 
+                    {% for u in result %}
+                        <option value="{{u.id}}">{{u.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="room_type" class="form-label">Room Type</label>
+            <select class="form-select" id="room_type" name="room_type" required>
+                <option selected>Select Room Type</option>
+                <option value="suite">Suite</option>
+                <option value="deluxe">Deluxe</option>
+                <option value="executive">Executive</option>
+                <option value="club">Club</option>
+                <!-- Add more room types if needed -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="ac_type" class="form-label">AC/Non-AC</label>
+            <select class="form-select" id="ac_type" name="ac_type" required>
+                <option selected>Select AC/Non-AC</option>
+                <option value="ac">AC</option>
+                <option value="non_ac">Non-AC</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="images" class="form-label">Images</label>
+            <input type="file" class="form-control" id="f1" name="f1" multiple required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+
+    </form>
+</div>
+     </div>
+</div>
+{% endblock %}

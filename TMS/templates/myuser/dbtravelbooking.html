@@ -1,0 +1,41 @@
+{% extends 'myuser/index.html' %}
+{% load static %}
+{% block content %}
+<!--DASHBOARD-->
+	<section>
+		<div class="db">
+			<!--LEFT SECTION-->
+			{% include 'myuser/common/leftcontent.html' %}
+			<!--CENTER SECTION-->
+			<div class="db-2">
+				<div class="db-2-com db-2-main">
+					<h4>Travel Booking</h4>
+					<div class="db-2-main-com db-2-main-com-table">
+						<table class="responsive-table">
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>Package name</th>
+									<th>Total Amount</th>
+									<th>View More</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for row in bookings %}
+                                <tr>
+                                    <td>{{ row.id }}</td>
+                                    <td>{{ row.package }}</td>
+                                    <td>{{ row.amount }}(&#8377;)</td>
+                                    <th><a href="/myuser/dbtraveldetails/{{row.id}}">View More</a></th>
+                                </tr>
+                            {% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!--RIGHT SECTION-->
+			{% include 'myuser/common/rightcontent.html' %}
+		</div>
+	</section>
+{% endblock %}

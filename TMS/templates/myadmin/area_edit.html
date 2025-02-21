@@ -1,0 +1,31 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+<div class="col-sm-12 col-xl-6">
+<div class="bg-light rounded h-100 p-4">
+    <h6 class="mb-4">Edit Area</h6>
+    <form method="post" action="/myadmin/area_update/{{result.id}}">
+        {% csrf_token %}
+        <div class="row mb-3">
+        <label for="city" class="col-sm-3 col-form-label">City</label>
+        <div class="col-sm-12">
+            <select class="form-select mb-3" aria-label="Default select example" id="city" name="city">
+                <option selected>Select City</option>
+                {% for u in result1 %}
+                    <option value="{{u.id}}" {% if result.city_id == u.id %}selected {% endif %}>{{u.city_name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        </div>
+        <div class="row mb-3">
+            <label for="area_name" class="col-sm-3 col-form-label">Area Name</label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control" id="area_name" name="area_name" value="{{result.area_name}}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

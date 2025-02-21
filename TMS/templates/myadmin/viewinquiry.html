@@ -1,0 +1,42 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View Inquiry Details</h6>
+                <div class="table-responsive">
+                    <table class="table">
+		            <tbody>
+		                <tr>
+		                    <td>Inquiry ID</td>
+		                    <td>{{ row.id }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Name</td>
+		                    <td>{{ row.name }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Email id</td>
+		                    <td>{{ row.email }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Contact</td>
+		                    <td>{{ row.contact }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Message</td>
+		                    <td>{{ row.message }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Date</td>
+		                    <td>{{ row.date }}</td>
+		                </tr>
+		            </tbody>
+		        </table>
+    			</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

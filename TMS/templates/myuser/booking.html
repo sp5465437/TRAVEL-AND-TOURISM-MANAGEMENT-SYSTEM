@@ -1,0 +1,33 @@
+{% extends 'myuser/index.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title"><b>Booking</b></h2>
+                    {% if user.is_authenticated %}
+                    <form method="post" action="/myuser/booking_store/{{ package.id }}/">
+                        {% csrf_token %}
+                        <input type="hidden" name="package_id" value="{{ package.id }}">
+                        <div class="form-group">
+                            <label for="num_adults" style="font-size: 20px;">Number of Adults:</label>
+                            <input type="number" id="num_adults" name="num_adults" class="form-control" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="num_children" style="font-size: 20px;">Number of Children:</label>
+                            <input type="number" id="num_children" name="num_children" class="form-control" min="0" max="10" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="font-size: 20px;">Book Now</button>
+                    </form>
+                     {% else %}
+                    <!-- User is not logged in, show login message -->
+                    <p>Please <a href="{% url 'login' %}">login</a> to book this package.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

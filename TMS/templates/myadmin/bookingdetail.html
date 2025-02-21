@@ -1,0 +1,46 @@
+{% extends 'myadmin/layout.html' %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View Booking Information</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Booking id</th>
+                                <th>Username</th>
+                                <th>Package Name</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Number Of Adults</th>
+                                <th>Number of Child</th>
+                                <th>Payment Status</th>
+                                <th>Payment Mode</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in result %}
+                                <tr>
+                                    <td>{{ row.id }}</td>
+                                    <td>{{ row.user.username }}</td>
+                                    <td>{{ row.package }}</td>
+                                    <td>{{ row.amount }}(&#8377;)</td>
+                                    <td>{{ row.date }}</td>
+                                    <th>{{row.num_adults}}</th>
+                                    <th>{{row.num_children}}</th>
+                                    <td>{{ row.status }}</td>
+                                    <td>{{ row.payment_mode }}</td>
+                                    <!-- <td>{{ row.razorpay_order_id }}</td> -->
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

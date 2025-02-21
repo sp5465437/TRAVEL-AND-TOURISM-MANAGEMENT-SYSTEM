@@ -1,0 +1,46 @@
+{% load static %}
+<div class="ed-mob-menu">
+            <div class="ed-mob-menu-con">
+                <div class="ed-mm-left">
+                    <div class="wed-logo">
+                        <a href="#"><img src="{% static 'myuser/images/logo.png' %}" alt="" />
+						</a>
+                    </div>
+                </div>
+                <div class="ed-mm-right">
+                    <div class="ed-mm-menu">
+                        <a href="#!" class="ed-micon"><i class="fa fa-bars"></i></a>
+                        <div class="ed-mm-inn">
+                            <a href="#!" class="ed-mi-close"><i class="fa fa-times"></i></a>
+                            {% if user.is_authenticated %}
+                            <h4>User Dashboard</h4>
+                            <ul>
+                                <li><a href="/myuser/dashboard">My Bookings</a></li>
+                                <li><a href="/myuser/dbmyprofile">My Profile</a></li>
+                                <li><a href="/myuser/dbmyprofileedit">My Profile edit</a></li>
+                                <li><a href="/myuser/db-travel-booking">Tour Packages</a></li>
+                                <li><a href="/myuser/dbhotelbooking">Hotel Bookings</a></li>
+                                <li><a href="/myuser/dbpayment">Make Payment</a></li>
+                                <li><a href="/myuser/dbrefund">Cancel Bookings</a></li>
+                                <li><a href="/myuser/dballpayment">Prient E-Tickets</a></li>
+                                <li><a href="/myuser/dbhoteldetails">Hotel booking details</a></li>
+                                <li><a href="/myuser/dbtraveldetails">Travel booking details</a></li>
+                            </ul>
+                            {% else %}
+                            <h4 class="ed-dr-men-mar-top">User login pages</h4>
+                            <ul>
+                                <li><a href="/myuser/register">Register</a></li>
+                                <li><a href="/myuser/login">Login and Sign in</a></li>
+                                <li><a href="/myuser/forgotpass">Forgot pass</a></li>
+                            </ul>
+                            {% endif %}
+                            <h4>Other pages:2</h4>
+                            <ul>
+                                <li><a href="about">About Us</a></li>
+                                <li><a href="contact">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,77 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+
+<div class="container-fluid pt-4 px-4">
+<div class="col-sm-12 col-xl-6">
+<div class="bg-light rounded h-100 p-4">
+    <h6 class="mb-4">Edit Hotel</h6>
+    <div class="col-sm-12">
+    <form enctype="multipart/form-data" method="post" action="/myadmin/hotel_update/{{hotel.id}}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Hotel Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{hotel.name}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{hotel.email}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="contact" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="contact" name="contact" value="{{hotel.contact}}" required>
+        </div>
+        <div class="row mb-3">
+            <label for="formFileMultiple" class="form-label">Images</label>
+            <div>
+            <img src="/media/upload/{{hotel.image}}" height="100" width="100"></div>
+            <input class="form-control" type="file" id="f" name="f" multiple>
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <textarea class="form-control" id="address" name="address" rows="3" required>
+                {{hotel.address}}
+            </textarea>
+        </div>
+        <div class="mb-3">
+        <label for="state" class="form-label">State</label>
+        <select class="form-select" id="state" name="state" required>
+            <option selected>Select State</option>
+            {% for u in states %}
+                <option value="{{u.id}}" {% if hotel.state.id == u.id %}selected {% endif %}>{{u.state_name}}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <select class="form-select" id="city" name="city" required>
+            <option selected>Select City</option>
+            {% for city in cities %}
+                <option value="{{ city.id }}" {% if hotel.city.id == city.id %} selected {% endif %}>{{ city.city_name }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <div class="mb-3">
+        <label for="area" class="form-label">Area</label>
+        <select class="form-select" id="area" name="area" required>
+            <option selected>Select Area</option>
+            {% for area in areas %}
+                <option value="{{ area.id }}" {% if hotel.area.id == area.id %} selected {% endif %}>{{ area.area_name }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-select" id="status" name="status" required>
+                <option selected>Select Status</option>
+                <option value="available" {% if hotel.status == 'available' %} selected {% endif %}>Available</option>
+                <option value="not_available" {% if hotel.status == 'not_available' %} selected {% endif %}>Not Available</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View User Details</h6>
+                <div class="table-responsive">
+                    <table class="table">
+		            <tbody>
+		                <tr>
+		                    <td>User ID</td>
+		                    <td>{{ user.id }}</td>
+		                </tr>
+		                <tr>
+		                    <td>First Name</td>
+		                    <td>{{ user.first_name }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Last Name</td>
+		                    <td>{{ user.last_name }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Date of Birth</td>
+		                    <td>{{ user.profile.dob }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Gender</td>
+		                    <td>{{ user.profile.gender }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Email ID</td>
+		                    <td>{{ user.email }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Contact Number</td>
+		                    <td>{{ user.profile.contact }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Date of Birth</td>
+		                    <td>{{ user.profile.dob }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Gender</td>
+		                    <td>{{ user.profile.gender }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Reg. Date</td>
+		                    <td>{{ user.date_joined }}</td>
+		                </tr>
+		            </tbody>
+		        </table>
+    			</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

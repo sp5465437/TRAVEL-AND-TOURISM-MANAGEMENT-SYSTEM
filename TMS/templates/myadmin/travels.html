@@ -1,0 +1,72 @@
+{% extends 'myadmin/layout.html' %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="col-sm-12 col-xl-12">
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">Add Travels</h6>
+            <div class="col-sm-12">
+                <form method="post" enctype="multipart/form-data" action="/myadmin/travel_store">
+                    {% csrf_token %}
+                    <div class="row mb-3">
+                        <label for="travel_name" class="col-sm-4 col-form-label">Travel Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="contact_number" class="col-sm-4 col-form-label">Contact Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="contact" name="contact">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="travel_photo" class="col-sm-4 col-form-label">Traveler Photo</label>
+                        <div class="col-sm-8">
+                            <input type="file" class="form-control" id="f" name="f">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="vehicle_number" class="col-sm-4 col-form-label">Vehicle Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="vehicle_number" name="vehicle_number">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="no_of_seats" class="col-sm-4 col-form-label">Number of Seats</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="number_of_seats" name="number_of_seats">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="photo" class="col-sm-4 col-form-label">Photo</label>
+                        <div class="col-sm-8">
+                            <input type="file" class="form-control" id="f1" name="f1">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="travel_type" class="col-sm-4 col-form-label">Travel Type</label>
+                        <div class="col-sm-8">
+                            <select class="form-select" id="travel_type" name="travel_type">
+                                <option value="bus">Bus</option>
+                                <option value="car">Car</option>
+                                <option value="van">Van</option>
+                                <option value="train">Train</option>
+                                <option value="plane">Plane</option>
+                                <option value="boat">Boat</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Add other fields here -->
+                    <div class="row mb-3">
+                        <div class="col-sm-8 offset-sm-4">
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

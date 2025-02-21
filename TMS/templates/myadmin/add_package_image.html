@@ -1,0 +1,52 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Upload Package Images</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="package">Package:</label>
+                <select class="form-control" id="package" name="package" action="myadmin/upload_images">
+                    <option value="">Select Package</option>
+                    <!-- Populate options dynamically from database -->
+                    {% for package in packages %}
+                        <option value="{{ package.id }}">{{ package }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="image">Image 1:</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <div class="form-group">
+                <label for="image1">Image 2:</label>
+                <input type="file" class="form-control-file" id="image1" name="image1">
+            </div>
+            <div class="form-group">
+                <label for="image2">Image 3:</label>
+                <input type="file" class="form-control-file" id="image2" name="image2">
+            </div>
+            <div class="form-group">
+                <label for="image3">Image 4:</label>
+                <input type="file" class="form-control-file" id="image3" name="image3">
+            </div>
+            <div class="form-group">
+                <label for="image4">Image 5:</label>
+                <input type="file" class="form-control-file" id="image4" name="image4">
+            </div>
+            <div class="form-group">
+                <label for="image5">Image 6:</label>
+                <input type="file" class="form-control-file" id="image5" name="image5">
+            </div>
+            <div class="form-group">
+                <label for="image6">Image 7:</label>
+                <input type="file" class="form-control-file" id="image6" name="image6">
+            </div>
+            <div class="form-group">
+                <label for="image7">Image 8:</label>
+                <input type="file" class="form-control-file" id="image7" name="image7">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Images</button>
+        </form>
+    </div>
+{% endblock %}

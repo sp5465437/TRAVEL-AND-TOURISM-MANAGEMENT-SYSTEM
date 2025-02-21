@@ -1,0 +1,71 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View Package Details</h6>
+                <div class="table-responsive">
+                    <table class="table">
+		            <tbody>
+		                <tr>
+		                    <td>Package ID</td>
+		                    <td>{{ package.id }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Category</td>
+		                    <td>{{ package.category }}</td>
+		                </tr>
+		                <tr>
+		                    <td>From date</td>
+		                    <td>{{ package.from_date }}</td>
+		                </tr>
+		                <tr>
+		                    <td>To date</td>
+		                    <td>{{ package.to_date }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Description</td>
+		                    <td>{{ package.description }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Hotel</td>
+		                    <td>{{ package.hotel }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Travelers</td>
+		                    <td>{{ package.travel }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Places</td>
+		                    <td>
+		                        <ul>
+		                            {% for place in package_places %}
+		                                <li>{{ place.place.name }}</li>
+		                            {% endfor %}
+		                        </ul>
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>Price</td>
+		                    <td>{{ package.price }}(&#8377;)</td>
+		                </tr>
+		                <tr>
+		                    <td>Days</td>
+		                    <td>{{ package.days }}</td>
+		                </tr>
+		                <tr>
+		                    <td>Image</td>
+		                    <td>
+		                    	<img src="/media/upload/{{package.image}}" height="100" width="100">
+                            </td>
+		                </tr>
+		            </tbody>
+		        </table>
+    			</div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/myadmin/package_place/{{ package.id }}">Add Places</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .admin-btn {
+            background-color: #007bff;
+        }
+        .user-btn {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Travel and Tourism Management System</h1>
+    <p>Click a button below to navigate:</p>
+
+    <!-- Button to go to MyAdmin login -->
+    <a href="{% url 'myadmin_login' %}" class="button admin-btn">Admin Login</a>
+
+    <!-- Button to go to MyUser dashboard -->
+    <a href="{% url 'index' %}" class="button user-btn">User Dashboard</a>
+</body>
+</html>

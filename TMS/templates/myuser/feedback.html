@@ -1,0 +1,54 @@
+{% extends 'myuser/index.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="feedback-form">
+        <h2 class="text-center">Feedback</h2>
+        <form method="post" action="/myuser/feedback_store">
+            {% csrf_token %}
+            <div class="col-sm-12 mb-12">
+                <div class="form-group">
+                    <h3>Write Your Rating Here</h3>
+                    <fieldset class="rating">
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4half" name="rating" value="4 and a half" />
+                        <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3half" name="rating" value="3 and a half" />
+                        <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label class="full" for="star3" title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2half" name="rating" value="2 and a half" />
+                        <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1half" name="rating" value="1 and a half" />
+                        <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                        <input type="radio" id="starhalf" name="rating" value="half" />
+                        <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="col-sm-12 mb-12">
+                <div class="form-group">
+                    <label class="h6 small d-block text-uppercase">
+                        Comment
+                        <span class="text-danger">*</span>
+                    </label>
+
+                    <div class="input-group">
+                        <textarea class="form-control" rows="4" cols="180%" name="comment" id="comment" required="" placeholder="Write your comment"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mt-5" align="center">
+                <input name="submit" type="submit" class="btn btn-primary btn-circled" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

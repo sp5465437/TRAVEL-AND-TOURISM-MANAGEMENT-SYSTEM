@@ -1,0 +1,51 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="col-sm-12 col-xl-6">
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">Edit Hotel-image</h6>
+            <div class="col-sm-12">
+                <form enctype="multipart/form-data" method="post" action="/myadmin/hotel_image_update/{{ hotel_image.id }}/">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="hotel" class="form-label">Hotel</label>
+                        <select class="form-select" id="hotel" name="hotel" required>
+                            {% for hotel in hotels %}
+                                <option value="{{ hotel.id }}" {% if hotel.id == hotel_image.hotel.id %} selected {% endif %}>{{ hotel.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="room_type" class="form-label">Room Type</label>
+                        <select class="form-select" id="room_type" name="room_type" required>
+                            <option selected>Select Room Type</option>
+                            <option value="suite" {% if hotel_image.room_type == 'suite' %} selected {% endif %}>Suite</option>
+                            <option value="deluxe" {% if hotel_image.room_type == 'deluxe' %} selected {% endif %}>Deluxe</option>
+                            <option value="executive" {% if hotel_image.room_type == 'executive' %} selected {% endif %}>Executive</option>
+                            <option value="club" {% if hotel_image.room_type == 'club' %} selected {% endif %}>Club</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ac_type" class="form-label">AC/Non-AC</label>
+                        <select class="form-select" id="ac_type" name="ac_type" required>
+                            <option selected>Select AC/Non-AC</option>
+                                <option value="ac" {% if hotel_image.ac_type == 'ac' %} selected {% endif %}>AC</option>
+                                <option value="non_ac" {% if hotel_image.ac_type == 'non_ac' %} selected {% endif %}>Non-AC</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="images" class="form-label">Images</label>
+                        <div>
+                            <img src="/media/upload/{{ hotel_image.image }}" height="100" width="100">
+                            <input type="file" class="form-control" id="f1" name="f1" multiple>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

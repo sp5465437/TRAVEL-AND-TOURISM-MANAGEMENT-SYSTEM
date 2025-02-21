@@ -1,0 +1,88 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="col-sm-12 col-xl-6">
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">Edit Package</h6>
+            <form action="{% url 'package_update' id=package.id %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <label for="category" class="col-sm-4 col-form-label">Package Category</label>
+                    <div class="col-sm-12">
+                        <select class="form-select mb-3" aria-label="Default select example" id="category" name="category" required>
+                            <option selected>Select Category</option> 
+                            {% for c in category %}
+                                <option value="{{ c.id }}" {% if c.id == package.category_id %} selected {% endif %}>{{ c.category_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="from_date" class="col-sm-4 col-form-label">From Date</label>
+                    <div class="col-sm-12">
+                        <input type="date" class="form-control" id="from_date" name="from_date" value="{{ package.from_date|date:'Y-m-d' }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="to_date" class="col-sm-4 col-form-label">To Date</label>
+                    <div class="col-sm-12">
+                        <input type="date" class="form-control" id="to_date" name="to_date" value="{{ package.to_date|date:'Y-m-d' }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="description" class="col-sm-4 col-form-label">Description</label>
+                    <div class="col-sm-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a description here" id="description" name="description" style="height: 150px;">
+                                {{ package.description }}
+                            </textarea>
+                            <label for="description">Description</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="hotel" class="col-sm-4 col-form-label">Hotel</label>
+                    <div class="col-sm-12">
+                        <select class="form-select mb-3" aria-label="Default select example" id="hotel" name="hotel">
+                            <option selected>Select Hotel</option> 
+                            {% for u in hotel %}
+                                <option value="{{u.id}}" {% if u.id == package.hotel_id %} selected {% endif %}>{{u.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="travel" class="col-sm-4 col-form-label">Travelers</label>
+                    <div class="col-sm-12">
+                        <select class="form-select mb-3" aria-label="Default select example" id="travel" name="travel">
+                            <option selected>Select Travels</option> 
+                            {% for u in travel %}
+                                <option value="{{u.id}}" {% if u.id == package.travel_id %} selected {% endif %}>{{u.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="price" class="col-sm-4 col-form-label">Price</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="price" name="price" value="{{ package.price }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="days" class="col-sm-4 col-form-label">Days</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="days" name="days" value="{{package.days}}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="formFileMultiple" class="form-label">Images</label>
+                    <div>
+                        <img src="/media/upload/{{package.image}}" height="100" width="100"></div>
+                        <input class="form-control" type="file" id="f" name="f" multiple>
+                    </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

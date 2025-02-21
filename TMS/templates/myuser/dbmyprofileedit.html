@@ -1,0 +1,58 @@
+{% extends 'myuser/index.html' %}
+{% load static %}
+{% block content %}
+    <!-- DASHBOARD -->
+    <section>
+        <div class="db">
+            <!-- LEFT SECTION -->
+            {% include 'myuser/common/leftcontent.html' %}
+            <!-- CENTER SECTION -->
+            <div class="db-2">
+                <div class="db-2-com db-2-main">
+                    <h4>Edit My Profile</h4>
+                    <div class="db-2-main-com db2-form-pay db2-form-com">
+                        <form class="col s12" method="post" action="/myuser/dbmyprofileedit" enctype="multipart/form-data">
+                            {% csrf_token %}            
+                            <div class="form-group">
+                                <label>User name</label>
+                                <input type="text" name="username" class="form-control" value="{{ data.user.username }}">
+                            </div>
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" name="first_name" class="form-control" value="{{ data.user.first_name }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" name="last_name" class="form-control" value="{{ data.user.last_name }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" class="form-control" value="{{ data.user.email }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <input type="number" name="mobile" id="mobile" class="form-control" value="{{ data.contact }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select class="form-select" id="gender" name="gender" required>
+                                    <option value="male" {% if data.gender == 'male' %} selected {% endif %}>Male</option>
+                                    <option value="female" {% if data.gender == 'female' %} selected {% endif %}>Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Date of Birth</label>
+                                <input type="date" class="form-control" id="dob" name="dob" value="{{ data.dob|date:'Y-m-d' }}">
+                            </div>
+                            <div class="submit-section">
+                                <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- RIGHT SECTION -->
+            {% include 'myuser/common/rightcontent.html' %}
+        </div>
+    </section>
+{% endblock %}

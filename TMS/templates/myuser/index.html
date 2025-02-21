@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Travel - Tour Travel</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- FAV ICON -->
+    <link rel="shortcut icon" href="{% static 'myuser/images/fav.ico' %}">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:400,500,700" rel="stylesheet">
+    <!-- FONT-AWESOME ICON CSS -->
+    <link rel="stylesheet" href="{% static 'myuser/css/font-awesome.min.css' %}">
+    <!--== ALL CSS FILES ==-->
+    <link rel="stylesheet" href="{% static 'myuser/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myuser/css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'myuser/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'myuser/css/mob.css' %}">
+    <link rel="stylesheet" href="{% static 'myuser/css/animate.css' %}">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <section>
+        {% include 'myuser/common/menu.html' %}
+    </section>
+    <!--HEADER SECTION-->
+    {% include 'myuser/common/topbar.html' %}
+    <!--END HEADER SECTION-->
+    {% block content %}
+    {% include 'myuser/common/header.html' %}
+    {% endblock %}
+    <!--HEADER SECTION-->
+   
+    <!--====== REQUEST A QUOTE ==========-->
+    
+    <!--====== REQUEST A QUOTE ==========-->
+    <!-- <section>
+        <div class="form tb-space">
+            <div class="rows container">
+                <div class="spe-title">
+                    <h2>Book your <span>favourite Package</span> Now!</h2>
+                    <div class="title-line">
+                        <div class="tl-1"></div>
+                        <div class="tl-2"></div>
+                        <div class="tl-3"></div>
+                    </div>
+                    <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide. Book travel packages and enjoy your holidays with distinctive experience</p>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 form_1">
+                    <div class="succ_mess">Thank you for contacting us we will get back to you soon.</div>
+                    <form id="home_form" name="home_form" action="mail/send.php">
+                        <ul>
+                            <li>
+                                <input type="text" name="ename" value="" id="ename" placeholder="Name" required>
+                            </li>
+                            <li>
+                                <input type="tel" name="emobile" value="" id="emobile" placeholder="Mobile" required>
+                            </li>
+                            <li>
+                                <input type="email" name="eemail" value="" id="eemail" placeholder="Email id" required>
+                            </li>
+                            <li>
+                                <input type="text" name="esubject" value="" id="esubject" placeholder="Subject" required>
+                            </li>
+                            <li>
+                                <input type="text" name="ecity" value="" id="ecity" placeholder="City" required>
+                            </li>
+                            <li>
+                                <input type="text" name="ecount" value="" id="ecount" placeholder="Country" required>
+                            </li>
+                            <li>
+                                <textarea name="emess" cols="40" rows="3" id="text-comment" placeholder="Enter your message"></textarea>
+                            </li>
+                            <li>
+                                <input type="submit" value="Submit" id="send_button">
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 family">
+                    <img src="images/family.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!--====== TIPS BEFORE TRAVEL ==========-->
+    <section>
+        <div class="rows tips tips-home tb-space home_title">
+            <div class="container tips_1">
+                <!-- TIPS BEFORE TRAVEL -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <h3>Tips Before Travel</h3>
+                    <div class="tips_left tips_left_1">
+                        <h5>Bring copies of your passport</h5>
+                        <p>Aliquam pretium id justo eget tristique. Aenean feugiat vestibulum blandit.</p>
+                    </div>
+                    <div class="tips_left tips_left_2">
+                        <h5>Register with your embassy</h5>
+                        <p>Mauris efficitur, ante sit amet rhoncus malesuada, orci justo sollicitudin.</p>
+                    </div>
+                    <div class="tips_left tips_left_3">
+                        <h5>Always have local cash</h5>
+                        <p>Donec et placerat ante. Etiam et velit in massa. </p>
+                    </div>
+                </div>
+                <!-- CUSTOMER TESTIMONIALS -->
+                <div class="col-md-8 col-sm-6 col-xs-12 testi-2">
+                    <!-- TESTIMONIAL TITLE -->
+                    <h3>Customer Testimonials</h3>
+                    <div class="testi">
+                        <h4>John William</h4>
+                        <p>Ut sed sem quis magna ultricies lacinia et sed tortor. Ut non tincidunt nisi, non elementum lorem. Aliquam gravida sodales</p> <address>Illinois, United States of America</address> </div>
+                    <!-- ARRANGEMENTS & HELPS -->
+                    <h3>Arrangement & Helps</h3>
+                    <div class="arrange">
+                        <ul>
+                            <!-- LOCATION MANAGER -->
+                            <li>
+                                <a href="#"><img src="{% static 'myuser/images/Location-Manager.png' %}" alt=""> </a>
+                            </li>
+                            <!-- PRIVATE GUIDE -->
+                            <li>
+                                <a href="#"><img src="{% static 'myuser/images/Private-Guide.png' %}" alt=""> </a>
+                            </li>
+                            <!-- ARRANGEMENTS -->
+                            <li>
+                                <a href="#"><img src="{% static 'myuser/images/Arrangements.png' %}" alt=""> </a>
+                            </li>
+                            <!-- EVENT ACTIVITIES -->
+                            <li>
+                                <a href="#"><img src="{% static 'myuser/images/Events-Activities.png' %}" alt=""> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'myuser/common/footer.html' %}
+

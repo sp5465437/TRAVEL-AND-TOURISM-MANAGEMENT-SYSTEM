@@ -1,0 +1,42 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View and Modify Hotel Image</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Hotel Name</th>
+                                <th>Room Type</th>
+                                <th>Ac/Non-Ac Type</th>
+                                <th>Photo</a></th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in result1 %}
+                            <tr>
+                                <td>{{row.id}}</td>
+                                <td>{{row.hotel}}</td>
+                                <td>{{row.room_type}}</td>
+                                <td>{{row.ac_type}}</td>
+                                <td>
+                                    <img src="/media/upload/{{row.image}}" height="100" width="100">
+                                </td>
+                                <th><a href="/myadmin/hotel_image_edit/{{row.id}}">Edit</a></th>
+                                <th><a href="/myadmin/hotel_image_delete/{{row.id}}">Delete</a></th>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'myuser/index.html' %}
+{% load static %}
+{% block content %}
+<!--DASHBOARD-->
+	<section>
+		<div class="db">
+			<!--LEFT SECTION-->
+			{% include 'myuser/common/leftcontent.html' %}
+			<!--CENTER SECTION-->
+			<div class="db-2">
+				<div class="db-2-com db-2-main">
+					<h4>Travel Details</h4>
+					<div class="db-2-main-com db-2-main-com-table">
+						<table class="responsive-table">
+							<tbody>
+								<tr>
+									<td>Package Name</td>
+									<td>:</td>
+									<td>{{booking.package}}</td>
+								</tr>
+								<tr>
+									<td>Payable Amount</td>
+									<td>:</td>
+									<td>{{booking.amount}}(&#8377;)</td>
+								</tr>
+								<tr>
+									<td>Booking Date</td>
+									<td>:</td>
+									<td>{{booking.date}}</td>
+								</tr>
+								<tr>
+									<td>From Date</td>
+									<td>:</td>
+									<td>{{package.from_date}}</td>
+								</tr>
+								<tr>
+									<td>To Date</td>
+									<td>:</td>
+									<td>{{package.to_date}}</td>
+								</tr>
+								<tr>
+									<td>Number Of Adults</td>
+									<td>:</td>
+									<td>{{booking.num_adults}}</td>
+								</tr>
+								<tr>
+									<td>Number of Child</td>
+									<td>:</td>
+									<td>{{booking.num_children}}</td>
+								</tr>
+								<tr>
+									<td>Payment Mode</td>
+									<td>:</td>
+									<td>{{booking.payment_mode}}</td>
+								</tr>
+								<tr>
+									<td>Places Covered</td>
+									<td>:</td>
+									<td>
+							            {% for place in package_places %}
+							                <li>{{ place.place.name }}</li>
+							            {% endfor %}
+							    	</td>
+								</tr>
+								<tr>
+									<td>Payment Status</td>
+									<td>:</td>
+									<td>{{booking.status}}<!-- <span class="db-not-done">{{booking.status}}</span> -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+							<a id="downloadInvoice" href="{% url 'download-invoice' package_id=package.id booking_id=booking.id %}" download><h3>Download Invoice</h3></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--RIGHT SECTION-->
+			{% include 'myuser/common/rightcontent.html' %}
+		</div>
+	</section>
+<script>
+// JavaScript to trigger download when "Download Invoice" link is clicked
+document.getElementById("downloadInvoice").addEventListener("click", function(event) {
+  // Prevent default link action
+  event.preventDefault();
+  // Trigger download
+  var link = this;
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", link.href, true);
+  xhr.responseType = "blob";
+  xhr.onload = function() {
+    if (this.status === 200) {
+      var blob = new Blob([this.response], { type: "application/pdf" }); // Modify the MIME type according to your file type
+      var url = window.URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "invoice.pdf"; // Modify the filename as needed
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }
+  };
+  xhr.send();
+});
+</script>
+
+{% endblock %}

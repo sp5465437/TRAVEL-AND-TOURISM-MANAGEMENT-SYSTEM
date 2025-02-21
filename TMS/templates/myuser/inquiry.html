@@ -1,0 +1,32 @@
+{% extends 'myuser/index.html' %}
+{% load static %}
+{% block content %}
+
+<section>
+    <div class="form tb-space">
+    <div class="rows container">
+    <div class="col-md-6 col-sm-6 col-xs-12 form_1">
+    <h1>Enquiry</h1>
+    <form name="enquiry" method="post" action="/myuser/inquiry_store">
+        {% csrf_token %}
+        <p style="width: 350px;">
+            <b>Full name</b> <input type="text" name="name" class="form-control" id="name" placeholder="Enter your Full Name" required="">
+        </p>
+        <p style="width: 350px;">
+            <b>Email</b> <input type="email" name="email" class="form-control" id="email" placeholder="Enter your Email id" required="">
+        </p>
+        <p style="width: 350px;">
+            <b>Mobile No</b> <input type="text" name="contact" class="form-control" id="contact" maxlength="10" placeholder="Enter your 10 Digit mobile No" required="">
+        </p>
+        <p style="width: 350px;">
+            <b>Message</b> <textarea name="message" class="form-control" rows="6" cols="50" id="message" placeholder="Enter the your message here" required=""></textarea>
+        </p>
+        <p style="width: 350px;">
+            <button type="submit" name="submit1" class="btn-primary btn">Submit</button>
+        </p>
+    </form>
+</div>
+</div>
+</div>
+</section>        
+{% endblock %}

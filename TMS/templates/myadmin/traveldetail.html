@@ -1,0 +1,50 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View Travelers Details</h6>
+                <div class="table-responsive">
+                    <table class="table">
+		            <tbody>
+		                <tr>
+                            <td>Travelers ID</td>
+                            <td>{{result.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Travel Name</td>
+                            <td>{{ result.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number</td>
+                            <td>{{ result.contact }}</td>
+                        </tr>
+                        <tr>
+                            <td>Travel Photo</td>
+                            <td><img src="/media/upload/{{result.photo}}" height="100" width="100"></td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle Number</td>
+                            <td>{{ result.vehicle_number }}</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Seats</td>
+                            <td>{{ result.number_of_seats }}</td>
+                        </tr>
+                        <tr>
+                            <td>Photo</td>
+                            <td><img src="/media/upload/{{result.image}}" height="100" width="100"></td>
+                        </tr>
+                        <tr>
+                            <td>Travel Type</td>
+                            <td>{{ result.travel_type }}</td>
+                        </tr>
+                    </tbody>
+		        </table>
+    			</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

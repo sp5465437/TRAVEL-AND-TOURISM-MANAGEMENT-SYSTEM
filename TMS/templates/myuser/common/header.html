@@ -1,0 +1,52 @@
+{% load static %}
+<section>
+    <div class="tourz-search">
+        <div class="container">
+            <div class="row">
+                <div class="tourz-search-1">
+                    <h1>Plan Your Travel Now!</h1>
+                    <p>Experience the various exciting tour and travel packages and Make hotel reservations, find vacation packages, search cheap hotels and events</p>
+                    <!-- Your search form code -->
+                    <div class="tourz-hom-ser">
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="0.5s"><img src="{% static 'myuser/images/icon/2.png' %}" alt=""> Tour</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular tour places section -->
+<section>
+    <div class="rows pla pad-bot-redu tb-space">
+        <div class="pla1 p-home container">
+            <div class="spe-title">
+                <h2>Top <span>Tour Packages</span></h2>
+                <div class="title-line">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                <p>World's leading tour and travels Booking website,Over 30,000 packages worldwide. Book travel packages and enjoy your holidays with distinctive experience</p>
+            </div>
+            <div class="popu-places-home">
+                {% for package in packages %}
+                <div class="col-md-6 col-sm-6 col-xs-12 place">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <img src="/media/upload/{{ package.image }}" />
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <h3><span>{{ package.category }}</span> {{ package.days }}</h3>
+                        <p>{{ package.description | truncatechars:150 }}</p>
+                        <a href="/myuser/tourdetails/{{ package.id }}" class="link-btn">more info</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

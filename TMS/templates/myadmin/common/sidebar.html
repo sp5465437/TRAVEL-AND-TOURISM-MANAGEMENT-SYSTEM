@@ -1,0 +1,70 @@
+{% load static %}
+<div class="sidebar pe-6 pb-6">
+<nav class="navbar bg-light navbar-light">
+    <a href="index.html" class="navbar-brand mx-6 mb-6">
+        <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>TRAVELLO</h3>
+    </a>
+    <div class="d-flex align-items-center ms-4 mb-4">
+        <div class="position-relative">
+            <img class="rounded-circle" src="{% static 'myadmin/img/user.jpg' %}" alt="" style="width: 40px; height: 40px;">
+            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+        </div>
+        <div class="ms-3">
+            <h6 class="mb-0">Admin</h6>
+            <span>Admin</span>
+        </div>
+    </div>
+    <div class="navbar-nav w-100">
+        <a href="/myadmin/dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Package</a>
+            <div class="dropdown-menu bg-transparent border-0">
+                <a href="/myadmin/category" class="dropdown-item">Add Category</a>
+                <a href="/myadmin/viewcategory" class="dropdown-item">View and Modify Category</a>
+                <a href="/myadmin/package" class="dropdown-item">Add Package</a>
+                <a href="/myadmin/viewpackage" class="dropdown-item">View and Modify Package</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-bus-alt"></i>
+            Travels</a>
+            <div class="dropdown-menu bg-transparent border-0">
+                <a href="/myadmin/travels" class="dropdown-item">Add Travels</a>
+                <a href="/myadmin/viewtravels" class="dropdown-item">View and Modify Travels</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-hotel"></i>
+            Hotel</a>
+            <div class="dropdown-menu bg-transparent border-0">
+                <a href="/myadmin/hotel" class="dropdown-item">Add Hotel</a>
+                <a href="/myadmin/viewhotel" class="dropdown-item">View and Modify Hotel</a>
+                <a href="/myadmin/hotel_image" class="dropdown-item">Add Hotel-Image</a>
+                <a href="/myadmin/viewhotel_image" class="dropdown-item">View and Modify Hotel-Image</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="/myadmin/bookingdetail" class="nav-item nav-link"><i class="fa fa-book"></i>
+            Booking</a>
+        </div>
+        <a href="/myadmin/viewuser" class="nav-item nav-link"><i class="fa fa-user-plus"></i>
+        View Registered Users</a>
+        <a href="/myadmin/viewfeedback" class="nav-item nav-link"><i class="fas fa-comments"></i>
+        Feedback</a>
+        <a href="/myadmin/inquiry" class="nav-item nav-link"><i class="fa fa-question-circle"></i> Inquiry</a>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+            <div class="dropdown-menu bg-transparent border-0">
+                <a href="/myadmin/add_state" class="dropdown-item">Add State</a>
+                <a href="/myadmin/view_state" class="dropdown-item">View and Modify State</a>
+                <a href="/myadmin/add_city" class="dropdown-item">Add City</a>
+                <a href="/myadmin/view_city" class="dropdown-item">View and Modify City</a>
+                <a href="/myadmin/add_area" class="dropdown-item">Add Area</a>
+                <a href="/myadmin/view_area" class="dropdown-item">View and Modify Area</a>
+                <a href="/myadmin/add_place" class="dropdown-item">Add Place</a>
+                <a href="/myadmin/view_place" class="dropdown-item">View and Modify Place</a>
+            </div>
+        </div>
+    </div>
+</nav>
+</div>  

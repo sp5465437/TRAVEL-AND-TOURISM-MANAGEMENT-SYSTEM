@@ -1,0 +1,36 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+                    <div class="col-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">View and Modify Area</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Area_id</th>
+                                            <th scope="col">Area Name</th>
+                                            <th scope="col">City Name</th>
+                                            <th scope="col">Edit</th>
+                                            <th scope="col">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result %}
+                                        <tr>
+                                            <td>{{row.id}}</td>
+                                            <td>{{row.area_name}}</td>
+                                            <td>{{row.city}}</td>
+                                            <td><a href="/myadmin/area_edit/{{row.id }}">Edit</a></td>
+                                            <td><a href="/myadmin/area_delete/{{row.id}}">Delete</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

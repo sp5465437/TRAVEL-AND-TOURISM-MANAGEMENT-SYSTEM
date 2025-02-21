@@ -1,0 +1,51 @@
+{% extends 'myuser/index.html' %}
+{% load static %}
+{% block content %}
+<section id="contact-info">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6 col-md-6">
+                <div class="contact-info-block text-center">
+                    <h4 class="display-4 font-weight-bold"> Payment Process</h4>
+                    <form class="text-center border border-light p-5" id="payment-form" action="{% url 'booking_success' %}" method="POST">
+                        {% csrf_token %}
+
+                        <!-- RAZORPAY INTEGRATION HERE -->
+                        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                        <button id="rzp-button" class="btn btn-primary" type="button">Pay with Razorpay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+var options = {
+    "key": "rzp_test_WvukvsPx77VA9r", // Replace with your Razorpay API Key
+    "amount": {{ amount }}, // Amount in paise
+    "currency": "INR",
+    "name": "TMS",
+    "description": "TMS",
+    "image": "https://oibp1.000webhostapp.com/logo.PNG",
+    "order_id": "{{ order_id }}",
+    "handler" : function(response) {
+        // Handle successful payment response here
+        console.log(response);
+        // Redirect user to booking success page
+        window.location.href = "{% url 'booking_success' %}";
+    },
+    "prefill": {
+        "name": "{{ request.user.first_name }}",
+        "email": "{{ request.user.email }}"
+    },
+    "theme": {
+        "color": "#F37254"
+    }
+};
+var rzp = new Razorpay(options);
+document.getElementById('rzp-button').onclick = function (e) {
+    rzp.open();
+    e.preventDefault();
+};
+</script>
+{% endblock %}

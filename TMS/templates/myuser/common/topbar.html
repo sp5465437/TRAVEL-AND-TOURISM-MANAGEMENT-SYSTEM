@@ -1,0 +1,191 @@
+{% load static %}
+<section>
+        <!-- TOP BAR -->
+        <div class="ed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ed-com-t1-left">
+                            <ul>
+                                <li><a href="#">Contact: 108,Sahitya Avenue,Naroda,Ahmedabad</a>
+                                </li>
+                                <li><a href="#">Phone: +101-1231-1231</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ed-com-t1-right">
+                            <ul>
+                                {% if user.is_authenticated %}
+                                    <li><a href="/myuser/logout"><i class="fa fa-user"></i>Logout</a></li>
+                                    {% else %}
+                                <li><a href="/myuser/login">Login</a>
+                                </li>
+                                <li><a href="/myuser/register">Register</a>
+                                </li>
+                                  {% endif %}
+                            </ul>
+                        </div>
+                        <div class="ed-com-t1-social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGO AND MENU SECTION -->
+        <div class="top-logo" data-spy="affix" data-offset-top="250">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wed-logo">
+                            <a href="#"><img src="{% static 'myuser/images/logo.png' %}" alt="" />
+                            </a>
+                        </div>
+                        <div class="main-menu">
+                            <ul>
+                                <li><a href="/myuser/index">Home</a>
+                                </li>
+                                <li class="about-menu">
+                                    <a href="/myuser/familypackage" class="mm-arr">Packages</a>
+                                    <!-- MEGA MENU 1 -->
+                                    <div class="mm-pos">
+                                        <div class="about-mm m-menu">
+                                            <div class="m-menu-inn">
+                                                <div class="mm1-com mm1-s1">
+                                                    <div class="ed-course-in">
+                                                        <a class="course-overlay menu-about" href="all-package">
+                                                            <img src="{% static 'myuser/images/sight/5.jpg' %}" alt="">
+                                                            <span>Popular Package</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="mm1-com mm1-s2">
+                                                    <p>Want to change the world? At Berkeley we’re doing just that. When you join the Golden Bear community, you’re part of an institution that shifts the global conversation every single day.</p>
+                                                    <a href="/myuser/familypackage" class="mm-r-m-btn">Read more</a>
+                                                </div>
+                                                <div class="mm1-com mm1-s3">
+                                                    <ul>
+                                                        <li><a href="/myuser/familypackage">Tour Package Booking</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <!--<li><a class='dropdown-button ed-sub-menu' href='#' data-activates='dropdown1'>Courses</a></li>-->
+                                
+                                </li>
+                                <li><a href="/myuser/contact">Contact us</a>
+                                </li>
+                                <li><a href="/myuser/about">About us</a>
+                                </li>
+                                {% if user.is_authenticated %}
+                                <li><a href="/myuser/dbmyprofile">Profile</a>
+                                </li> 
+                                <li><a href="/myuser/inquiry">Inquiry</a>
+                                </li>
+                                <li><a href="/myuser/feedback">Feedback</a>
+                                </li>
+                                {% endif %}
+                                <li class="cour-menu">
+                                    <a href="#!" class="mm-arr">All Pages</a>
+                                    <!-- MEGA MENU 1 -->
+                                    <div class="mm-pos">
+                                        <div class="cour-mm m-menu">
+                                            <div class="m-menu-inn">
+                                                <div class="mm1-com mm1-cour-com mm1-s3">
+                                                    <h4>Home pages</h4>
+                                                    <ul>
+                                                        <li><a href="/myuser/index">Home page</a></li>
+                                                    </ul>
+                                                </div>
+                                                 {% if user.is_authenticated %}
+                                                <div class="mm1-com mm1-cour-com mm1-s3">
+                                                    <h4>User Dashboard</h4>
+                                                    <ul>
+                                                        <li><a href="/myuser/dashboard">My Bookings</a></li>
+                                                        <li><a href="/myuser/dbmyprofile">My Profile</a></li>
+                                                        <li><a href="/myuser/dbmyprofileedit">My Profile edit</a></li>
+                                                        <li><a href="/myuser/dbtravelbooking">Tour Packages</a></li>
+                                                    </ul>
+                                                </div>
+                                                 {% endif %}
+                                                <div class="mm1-com mm1-cour-com mm1-s3">
+                                                    <h4 class="ed-dr-men-mar-top">User login pages</h4>
+                                                    <ul>
+                                                        <li><a href="/myuser/register">Register</a></li>
+                                                        <li><a href="/myuser/login">Login and Sign in</a></li>
+                                                        <li><a href="/myuser/forgotpass">Forgot password</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm1-com mm1-cour-com mm1-s4">
+                                                    <h4>Other pages:2</h4>
+                                                    <ul>
+                                                        <li><a href="/myuser/about">About Us</a></li>
+                                                        <li><a href="/myuser/contact">Contact Us</a></li>
+                                                         {% if user.is_authenticated %}
+                                                        <li><a href="/myuser/feedback">Feedback</a></li>
+                                                        <li><a href="/myuser/inquiry">Inquiry</a></li>
+                                                         {% endif %}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="search-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="search-form">
+                            <form>
+                                <div class="sf-type">
+                                    <div class="sf-input">
+                                        <input type="text" id="sf-box" placeholder="Search course and discount courses">
+                                    </div>
+                                    <div class="sf-list">
+                                        <ul>
+                                            <li><a href="course-details">Accounting/Finance</a></li>
+                                            <li><a href="course-details">civil engineering</a></li>
+                                            <li><a href="course-details">Art/Design</a></li>
+                                            <li><a href="course-details">Marine Engineering</a></li>
+                                            <li><a href="course-details">Business Management</a></li>
+                                            <li><a href="course-details">Journalism/Writing</a></li>
+                                            <li><a href="course-details">Physical Education</a></li>
+                                            <li><a href="course-details">Political Science</a></li>
+                                            <li><a href="course-details">Sciences</a></li>
+                                            <li><a href="course-details">Statistics</a></li>
+                                            <li><a href="course-details">Web Design/Development</a></li>
+                                            <li><a href="course-details">SEO</a></li>
+                                            <li><a href="course-details">Google Business</a></li>
+                                            <li><a href="course-details">Graphics Design</a></li>
+                                            <li><a href="course-details">Networking Courses</a></li>
+                                            <li><a href="course-details">Information technology</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="sf-submit">
+                                    <input type="submit" value="Search Course">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </section>

@@ -1,0 +1,241 @@
+
+{% extends 'myuser/index.html' %}
+{% load static %}
+{% block content %}
+<!--====== BANNER ==========-->
+    <section>
+        <div class="rows inner_banner inner_banner_4">
+            <div class="container">
+                <h2><span>{{ package.category }}</span>Package</h2>
+                <ul>
+                    <li><a href="#inner-page-title">Home</a>
+                    </li>
+                    <li><i class="fa fa-angle-right" aria-hidden="true"></i> </li>
+                    <li><a href="#inner-page-title" class="bread-acti">{{ package.category }}</a>
+                    </li>
+                </ul>
+                <p>Book travel packages and enjoy your holidays with distinctive experience</p>
+            </div>
+        </div>
+    </section>
+    <!--====== TOUR DETAILS - BOOKING ==========-->
+    <section>
+        <div class="rows banner_book" id="inner-page-title">
+            <div class="container">
+                <div class="banner_book_1">
+                    <ul>
+                        <!-- <li class="dl1">Location : {% for package_place in package.package_place_set.all %}
+                            {{ package_place.place.name }},
+                            {% endfor %}</li> -->
+                        <li class="dl2">Price : {{ package.price }}(&#8377;) Per Person</li>
+                        <li class="dl3">Duration : {{package.days}}</li>
+                        <!-- <li class="dl4"><a href="/myuser/booking">Book Now</a> </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== TOUR DETAILS ==========-->
+    <section>
+        <div class="rows inn-page-bg com-colo">
+            <div class="container inn-page-con-bg tb-space">
+                <div class="col-md-12">
+                    <!--====== TOUR TITLE ==========-->
+                    <div class="tour_head">
+                        <h2>The Best of {{package.category}} <span class="tour_star"></h2> </div>
+                    <!--====== TOUR DESCRIPTION ==========-->
+                    <div class="tour_head1">
+                        <h3>Description</h3>
+                        <p>{{ package.description }}</p>
+                    </div>
+
+                   <div class="tour_head1 hotel-book-room">
+                        <h3>Photo Gallery</h3>
+                        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators carousel-indicators-1">
+                                {% for image in packageimage %}
+                    <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter }}" {% if forloop.first %}class="active"{% endif %}>
+                        <img src="{{ image.image.url }}" alt="Image {{ forloop.counter }}">
+                    </li>
+                    <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter }}" {% if forloop.two %}class="active"{% endif %}>
+                        <img src="{{ image.image1.url }}" alt="Image {{ forloop.counter }}">
+                    </li>
+                    <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter }}" {% if forloop.three %}class="active"{% endif %}>
+                        <img src="{{ image.image2.url }}" alt="Image {{ forloop.counter }}">
+                    </li>
+                    <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter }}" {% if forloop.four %}class="active"{% endif %}>
+                        <img src="{{ image.image3.url }}" alt="Image {{ forloop.counter }}">
+                    </li>
+                    <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter }}" {% if forloop.five %}class="active"{% endif %}>
+                        <img src="{{ image.image4.url }}" alt="Image {{ forloop.counter }}">
+                    </li>
+                    <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter }}" {% if forloop.six %}class="active"{% endif %}>
+                        <img src="{{ image.image5.url }}" alt="Image {{ forloop.counter }}">
+                    </li>
+                    <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter }}" {% if forloop.seven %}class="active"{% endif %}>
+                        <img src="{{ image.image6.url }}" alt="Image {{ forloop.counter }}">
+                    </li>
+                     <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter }}" {% if forloop.eight %}class="active"{% endif %}>
+                        <img src="{{ image.image7.url }}" alt="Image {{ forloop.counter }}">
+                    </li>
+                    {% endfor %}
+
+                            </ol>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner carousel-inner1" role="listbox">
+                    {% for image in packageimage %}
+                    <div class="item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ image.image.url }}" alt="Image {{ forloop.counter }}">
+                    </div>
+                    <div class="item {% if forloop.two %}active{% endif %}">
+                        <img src="{{ image.image1.url }}" alt="Image {{ forloop.counter }}">
+                    </div>
+                    <div class="item {% if forloop.three %}active{% endif %}">
+                        <img src="{{ image.image2.url }}" alt="Image {{ forloop.counter }}">
+                    </div>
+                    <div class="item {% if forloop.four %}active{% endif %}">
+                        <img src="{{ image.image3.url }}" alt="Image {{ forloop.counter }}">
+                    </div>
+                    <div class="item {% if forloop.five %}active{% endif %}">
+                        <img src="{{ image.image4.url }}" alt="Image {{ forloop.counter }}">
+                    </div>
+                    <div class="item {% if forloop.six %}active{% endif %}">
+                        <img src="{{ image.image5.url }}" alt="Image {{ forloop.counter }}">
+                    </div>
+                    <div class="item {% if forloop.seven %}active{% endif %}">
+                        <img src="{{ image.image6.url }}" alt="Image {{ forloop.counter }}">
+                    </div>
+                    <div class="item {% if forloop.eight %}active{% endif %}">
+                        <img src="{{ image.image7.url }}" alt="Image {{ forloop.counter }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev"> <span><i class="fa fa-angle-left hotel-gal-arr" aria-hidden="true"></i></span> </a>
+                            <a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next"> <span><i class="fa fa-angle-right hotel-gal-arr hotel-gal-arr1" aria-hidden="true"></i></span> </a>
+                        </div>
+                    </div>
+                            <div>
+                                <ul><h2>Places Covered</h2>
+                            {% for package_place in package.package_place_set.all %}
+                             <li>{{ package_place.place.name }}</li>
+                            {% endfor %}</ul>
+                            </div>
+                    <!--====== ABOUT THE TOUR ==========-->
+                    <div>
+                        <div class="trav-ami">
+                            <h4>Detail and Includes</h4>
+                            <ul>
+                                <li><img src="{% static 'myuser/images/icon/a14.png' %}" alt=""> <span>Sightseeing</span></li>
+                                <li><img src="{% static 'myuser/images/icon/a15.png' %}" alt=""> <span>Hotel</span></li>
+                                <li><img src="{% static 'myuser/images/icon/a16.png' %}" alt=""> <span>Transfer</span></li>
+                                <li><img src="{% static 'myuser/images/icon/a17.png' %}" alt=""> <span>Luggage</span></li>
+                                <li><img src="{% static 'myuser/images/icon/dbl4.png' %}" alt=""> <span>Stay Plan</span></li>
+                            </ul>
+                        </div>  
+                    </div>
+                <div class="col-md-6">
+                <div class="db">
+                <div class="db-2-com db-2-main">
+                    <h4>Package Hotel Details</h4>
+                    <div class="db-2-main-com db-2-main-com-table">
+                        <table class="responsive-table">
+                            <tbody>
+                                <tr>
+                                    <td>Hotel Name</td>
+                                    <td>:</td>
+                                    <td>{{ package.hotel.name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Hotel Email</td>
+                                    <td>:</td>
+                                    <td>{{ package.hotel.email }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Image</td>
+                                    <td>:</td>
+                                    <td><img src="/media/upload/{{package.hotel.image}}" height="150" width="150" style="float: left;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>:</td>
+                                    <td>{{ package.hotel.address }}</td>
+                                </tr>
+                                <tr>
+                                    <td>State</td>
+                                    <td>:</td>
+                                    <td>{{ package.hotel.state }}</td>
+                                </tr>
+                                <tr>
+                                    <td>City</td>
+                                    <td>:</td>
+                                    <td>{{ package.hotel.city }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Area</td>
+                                    <td>:</td>
+                                    <td>{{ package.hotel.area }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="db">
+                <div class="db-2-com db-2-main">
+                    <h4>Travelers Details</h4>
+                    <div class="db-2-main-com db-2-main-com-table">
+                        <table class="responsive-table">
+                            <tbody>
+                                <tr>
+                                    <td>Travel Name</td>
+                                    <td>:</td>
+                                    <td>{{ package.travel.name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Contact Number</td>
+                                    <td>:</td>
+                                    <td>{{ package.travel.contact }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Travel Photo</td>
+                                    <td>:</td>
+                                    <td><img src="/media/upload/{{package.travel.photo}}" height="150" width="150" style="float: left;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Vehicle Number</td>
+                                    <td>:</td>
+                                    <td>{{ package.travel.vehicle_number }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of Seats</td>
+                                    <td>:</td>
+                                    <td>{{ package.travel.number_of_seats }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Image</td>
+                                    <td>:</td>
+                                    <td><img src="/media/upload/{{package.travel.image}}" height="150" width="150" style="float: left;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Travel Type</td>
+                                    <td>:</td>
+                                    <td>{{ package.travel.travel_type }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+</div>
+
+</div>
+ <div class="col-lg-12">
+    <button type="submit" class="link-btn"><a href="{% url 'booking' package.id %}">Book Here</a></button>
+</div>
+        </div>
+    </div>
+{% endblock %}

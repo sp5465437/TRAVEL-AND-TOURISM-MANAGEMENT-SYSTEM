@@ -1,0 +1,38 @@
+{% extends 'myadmin/layout.html' %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+	 <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">View Feedback Details</h6>
+                <div class="table-responsive">
+                    <table class="table">
+		            <tbody>
+		                <tr>
+		                    <td>Feedback ID</td>
+		                    <td>{{result.id}}</td>
+		                </tr>
+		                <tr>
+		                    <td>Username</td>
+		                    <td>{{result.user}}</td>
+		                </tr>
+		                <tr>
+		                    <td>Feedback Date</td>
+		                    <td>{{result.date}}</td>
+		                </tr>
+		                <tr>
+		                    <td>Rating</td>
+		                    <td>{{result.rating}}</td>
+		                </tr>
+		                <tr>
+		                    <td>Comments</td>
+		                    <td>{{result.comment}}</td>
+		                </tr>
+		            </tbody>
+		        </table>
+    			</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
